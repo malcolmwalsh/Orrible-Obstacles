@@ -11,10 +11,11 @@ public class DoubleJump : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            // TODO Get script
+            // Get script
+            PlayerMovement playerMove = other.GetComponent<PlayerMovement>();
 
             // Enable double jump
-            Debug.Log("Double jump enabled");
+            playerMove.EnableDoubleJump();
 
             // TODO Change color of player
 

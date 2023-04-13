@@ -35,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
     // How high the player can jump
     public float jumpHeight = 2f;
 
+    private bool canDoubleJump;
+    private bool hasDoubleJumped;
+
     private void Start()
     {
         // If the variable "controller" is empty...
@@ -60,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
+        else if (Input.GetButtonDown("Jump") && !isGrounded && canDoubleJump && !hasDoubleJumped)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            hasDoubleJumped = true;
+        }
 
         // Rotate the player based off those mouse values we collected earlier
         transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
@@ -67,9 +75,16 @@ public class PlayerMovement : MonoBehaviour
         // This is stealing the data about the player being on the ground from the character controller
         isGrounded = controller.isGrounded;
 
-        if (isGrounded && velocity.y < 0)
+        // What does this do
+        if (isGrounded && (velocity.y < 0))
         {
             velocity.y = -2f;
+        }
+
+        // Reset double jump
+        if (isGrounded)
+        {
+            hasDoubleJumped = false;
         }
 
         // This fakes gravity!
@@ -80,5 +95,11 @@ public class PlayerMovement : MonoBehaviour
 
         // Finally, it applies that vector it just made to the character
         controller.Move(speed * Time.deltaTime * move + velocity * Time.deltaTime);
+    }
+
+    public void EnableDoubleJump()
+    {
+        Debug.Log("Double jump enabled");
+        canDoubleJump = true;
     }
 }
