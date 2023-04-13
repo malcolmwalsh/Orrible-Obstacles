@@ -1,3 +1,4 @@
+using Assets.Objects.PowerUps;
 using System.Collections;
 using UnityEngine;
 
@@ -29,14 +30,17 @@ public class PlayerMovement : MonoBehaviour
     // Tells the script how far to keep the object off the ground
     public float groundDistance = 0.4f;
 
-    // So the script knows if you can jump!
-    private bool isGrounded;
-
     // How high the player can jump
     public float jumpHeight = 2f;
 
-    private bool canDoubleJump;
-    private bool hasDoubleJumped;
+    // So the script knows if you can jump!
+    // TODO Remove serialization
+    [SerializeField] private bool isGrounded;
+
+    // Allow double jump and track it
+    // TODO Remove serialization
+    [SerializeField] private bool canDoubleJump;
+    [SerializeField] private bool hasDoubleJumped;
 
     private void Start()
     {
@@ -59,14 +63,21 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         // Let the player jump if they are on the ground and they press the jump button
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump"))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        }
-        else if (Input.GetButtonDown("Jump") && !isGrounded && canDoubleJump && !hasDoubleJumped)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-            hasDoubleJumped = true;
+            if (isGrounded)
+            {
+                // On the ground, can jump
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+
+                hasDoubleJumped = false;
+            }
+            else if (!isGrounded && canDoubleJump && !hasDoubleJumped)
+            {
+                // In the air, and allowed to double jump
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                hasDoubleJumped = true;
+            }
         }
 
         // Rotate the player based off those mouse values we collected earlier
@@ -79,12 +90,6 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && (velocity.y < 0))
         {
             velocity.y = -2f;
-        }
-
-        // Reset double jump
-        if (isGrounded)
-        {
-            hasDoubleJumped = false;
         }
 
         // This fakes gravity!
@@ -101,5 +106,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Double jump enabled");
         canDoubleJump = true;
+    }
+
+    public void IncreaseSpeed()
+    {
+        speed *= 1.5f;
     }
 }

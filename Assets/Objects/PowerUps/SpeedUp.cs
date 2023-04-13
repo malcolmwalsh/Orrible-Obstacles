@@ -2,9 +2,8 @@ using UnityEngine;
 
 namespace Assets.Objects.PowerUps
 {
-    public class DoubleJump : MonoBehaviour
+    public class SpeedUp : MonoBehaviour
     {
-    
         void OnTriggerEnter(Collider other)
         {
             Debug.Log("Object entered trigger");
@@ -14,8 +13,8 @@ namespace Assets.Objects.PowerUps
                 // Get script
                 PlayerMovement playerMove = other.GetComponent<PlayerMovement>();
 
-                // Enable double jump
-                playerMove.EnableDoubleJump();
+                // Increase speed
+                playerMove.IncreaseSpeed();
 
                 // TODO Change color of player
 
@@ -26,5 +25,6 @@ namespace Assets.Objects.PowerUps
 
             }
         }
+
     }
 }
