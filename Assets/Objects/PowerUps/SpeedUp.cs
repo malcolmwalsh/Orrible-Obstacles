@@ -22,9 +22,7 @@ namespace Assets.Objects.PowerUps
 
                 // Destroy power up
                 Destroy(this.gameObject);
-
             }
         }
-
     }
 }

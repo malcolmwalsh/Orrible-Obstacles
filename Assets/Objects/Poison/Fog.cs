@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Fog : MonoBehaviour
 {
-    [SerializeField] private GameObject _canvas;
+    [SerializeField] private Manager _gameManager;
 
     public void OnTriggerStay(Collider other)
     {
@@ -11,11 +10,8 @@ public class Fog : MonoBehaviour
         {
             Debug.Log("Player detected in poison");
 
-            // TODO disable movement
-
-            // Show the canvas
-            _canvas.SetActive(true);
-
+            // call game over
+            _gameManager.GameOver();
         }
     }
 }
