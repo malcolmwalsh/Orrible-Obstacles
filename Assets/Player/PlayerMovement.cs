@@ -25,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
     // How high the player can jump
     [SerializeField] private float jumpHeight = 2f;
 
+    // Leeway for jumping off things
+    [SerializeField] private int _frameLeewayForGrounded = 20;
+
     // So the script knows if you can jump!
     // TODO Remove serialization
     [SerializeField] private bool isGrounded;
@@ -34,12 +37,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool canDoubleJump;
     [SerializeField] private bool hasDoubleJumped;
 
+
+    private int _numFramesSinceGrounded = 0;
+
     private void Start()
     {
         // If the variable "controller" is empty...
         if (controller == null)
         {
-            // ...then this searches the components on the gameobject and gets a reference to the CharacterController class
+            // ...then this searches the components on the game object and gets a reference to the CharacterController class
             controller = GetComponent<CharacterController>();
         }
     }
@@ -53,6 +59,30 @@ public class PlayerMovement : MonoBehaviour
         // Get the Left/Right and Forward/Back values of the input being used (WASD, Joystick etc.)
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        // Detect when the player is grounded or was until 5 frames ago (to give some leeway)
+        if (controller.isGrounded)
+        {
+            // Is on the ground
+            isGrounded = true;
+
+            _numFramesSinceGrounded = 0;
+        }
+        else
+        {
+            // Not on the ground
+
+            if (_numFramesSinceGrounded < _frameLeewayForGrounded)
+            {
+                // Been less than the limit of frames since was on the ground
+                _numFramesSinceGrounded += 1;
+            }
+            else
+            {
+                // Been more than the limit of frames
+                isGrounded = false;
+            }
+        }
 
         // Let the player jump if they are on the ground and they press the jump button
         if (Input.GetButtonDown("Jump"))
@@ -74,9 +104,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Rotate the player based off those mouse values we collected earlier
         transform.eulerAngles = new Vector3(0.0f, _yaw, 0.0f);
-
-        // This is stealing the data about the player being on the ground from the character controller
-        isGrounded = controller.isGrounded;
 
         // What does this do
         if (isGrounded && (velocity.y < 0))
