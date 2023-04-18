@@ -1,0 +1,210 @@
+fileFormatVersion: 2
+guid: 8d8c52f77606ff24dbbaa0fb2a180fa6
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fan|FanAction
+      takeName: Fan|FanAction
+      internalID: 4426660501304335554
+      firstFrame: 0
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: unity_fan(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Front cube
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: 0, z: 0.10653047}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 52.54594, y: 13.536085, z: 52.54594}
+    - name: rear cube
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 52.54594, y: 9.610049, z: 52.54594}
+    - name: Switch
+      parentName: unity_fan(Clone)
+      position: {x: 0.00000003131982, y: 0.00000003131982, z: 0}
+      rotation: {x: -0.70439816, y: 0.061832152, z: -0.061832152, w: 0.7043982}
+      scale: {x: 51.676735, y: 13.312176, z: 51.676735}
+    - name: rear panel
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: 4.667017e-16, z: 0.00000001565991}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 24.119978, y: 24.119978, z: 16.192488}
+    - name: Engine
+      parentName: unity_fan(Clone)
+      position: {x: -3.646107e-18, y: 0, z: -0.00000001565991}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 12.471756, y: 6.7958846, z: 18.575895}
+    - name: Fan
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000021855696, y: 5.6272726e-17, z: -1.2298796e-24, w: 1}
+      scale: {x: 8.329663, y: 8.329663, z: 7.325376}
+    - name: Front panel
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: 0, z: -0.00000001565991}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 9.432541, y: 9.432541, z: 0.62994087}
+    - name: Text
+      parentName: unity_fan(Clone)
+      position: {x: -0.00000003131982, y: 0, z: 0.00000001565991}
+      rotation: {x: 0.000000021849761, y: 0.023303157, z: -5.0930665e-10, w: 0.99972844}
+      scale: {x: 2.7361138, y: 2.7361138, z: 2.7361138}
+    - name: Text.001
+      parentName: unity_fan(Clone)
+      position: {x: -0.00000003131982, y: -0.00000003131982, z: 0}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 2.8315043, y: 2.8315043, z: 2.8315043}
+    - name: Text.002
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: -0.00000003131982, z: 0}
+      rotation: {x: 0.000000021855692, y: 0, z: -0, w: 1}
+      scale: {x: 2.996881, y: 2.996881, z: 2.996881}
+    - name: Text.003
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: -0.00000003131982, z: 0.00000001565991}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 3.1333187, y: 3.1333187, z: 3.1333187}
+    - name: Screw_Head_Screw Head Bnc Connector Circle 001 002.003
+      parentName: unity_fan(Clone)
+      position: {x: 0.00000006263964, y: 0.00000003131982, z: -0.000000007829955}
+      rotation: {x: 4.316693e-15, y: 1, z: -0.000000021855694, w: 0.00000019470718}
+      scale: {x: 8.622129, y: 8.622129, z: 8.622129}
+    - name: Cylinder
+      parentName: unity_fan(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: -4.8868046, y: -4.8868046, z: -7.1564684}
+    - name: Cube
+      parentName: unity_fan(Clone)
+      position: {x: -0.3165439, y: -0.53093106, z: 0.039010063}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
