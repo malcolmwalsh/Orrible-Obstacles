@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    private bool _buttonEnabled = false;
     [SerializeField] private GameObject _light;
+    [SerializeField] private Manager _manager;
+
+    private bool _buttonEnabled = false;
+    
 
     public void Update()
     {
@@ -28,6 +31,10 @@ public class ButtonController : MonoBehaviour
 
     private void TurnLightOff()
     {
+        // Turn light off
         _light.SetActive(false);
+
+        // Win the game
+        _manager.WinGame();
     }
 }

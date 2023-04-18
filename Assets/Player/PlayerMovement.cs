@@ -128,6 +128,6 @@ public class PlayerMovement : MonoBehaviour
     public void IncreaseSpeed()
     {
         Debug.Log("Speed up enabled");
-        _speed *= 1.5f;
+        _speed *= 2.0f;
     }
 }

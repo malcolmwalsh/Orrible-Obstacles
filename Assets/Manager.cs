@@ -11,6 +11,8 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject _deathScreen;
     [SerializeField] private GameObject _playScreen;
     [SerializeField] private GameObject _startScreen;
+    [SerializeField] private GameObject _winScreen;
+
     [SerializeField] private GameObject _playerCamera;
     [SerializeField] private GameObject _startCamera;
 
@@ -18,6 +20,8 @@ public class Manager : MonoBehaviour
     {
         ToggleScreen(_deathScreen, false);
         ToggleScreen(_playScreen, false);
+        ToggleScreen(_playScreen, false);
+
         ToggleScreen(_startScreen, true);
     }
 
@@ -54,9 +58,11 @@ public class Manager : MonoBehaviour
     {
         Debug.Log("Game started");
 
-        ToggleScreen(_deathScreen, false);
-        ToggleScreen(_playScreen, true);
+        ToggleScreen(_winScreen, false);
+        ToggleScreen(_deathScreen, false);        
         ToggleScreen(_startScreen, false);
+
+        ToggleScreen(_playScreen, true);
 
         _playerCamera.SetActive(true);
         _startCamera.SetActive(false);
@@ -100,5 +106,14 @@ public class Manager : MonoBehaviour
     {
         // TODO Improve display
         timerText.text = time.ToString("0.00");
+    }
+
+    public void WinGame()
+    {
+        Debug.Log("Game won");
+
+        _gameOver = true;
+
+        ToggleScreen(_winScreen, true);       
     }
 }
