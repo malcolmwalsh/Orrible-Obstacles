@@ -1,3 +1,4 @@
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -60,6 +61,6 @@ public class Manager : MonoBehaviour
     private void UpdateTimerDisplay(float time)
     {
         // TODO Improve display
-        timerText.text = time.ToString();
+        timerText.text = time.ToString("0.00");
     }
 }
