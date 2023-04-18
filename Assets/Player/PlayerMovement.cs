@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
 
     // Allow double jump and track it
-    private bool canDoubleJump;
+    // TODO Remove this serialization
+    [SerializeField] private bool canDoubleJump;
     private bool hasDoubleJumped;
 
     // Player velocity
