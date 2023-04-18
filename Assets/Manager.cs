@@ -11,6 +11,8 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject _deathScreen;
     [SerializeField] private GameObject _playScreen;
     [SerializeField] private GameObject _startScreen;
+    [SerializeField] private GameObject _playerCamera;
+    [SerializeField] private GameObject _startCamera;
 
     public void Start()
     {
@@ -46,15 +48,29 @@ public class Manager : MonoBehaviour
         _deathScreen.SetActive(true);
     }
 
+    public void StartGame()
+    {
+        ToggleScreen(_deathScreen, false);
+        ToggleScreen(_playScreen, true);
+        ToggleScreen(_startScreen, false);
+
+        _playerCamera.SetActive(true);
+        _startCamera.SetActive(false);
+    }
+
     public void Restart()
     {
+        // Reload the scene
+        SceneManager.LoadScene("Main Scene");
+
         // New game
         _gameOver = false;
 
         // Reset timer
         ResetTimer();
 
-        SceneManager.LoadScene("Main Scene");
+        // Start game
+        StartGame();
     }
 
     public void QuitGame()
