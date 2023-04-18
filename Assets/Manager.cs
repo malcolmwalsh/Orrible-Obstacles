@@ -1,7 +1,6 @@
-using System.Globalization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class Manager : MonoBehaviour
 {
@@ -10,6 +9,20 @@ public class Manager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private GameObject _deathScreen;
+    [SerializeField] private GameObject _playScreen;
+    [SerializeField] private GameObject _startScreen;
+
+    public void Start()
+    {
+        ToggleScreen(_deathScreen, false);
+        ToggleScreen(_playScreen, false);
+        ToggleScreen(_startScreen, true);
+    }
+
+    private void ToggleScreen(GameObject screen, bool value)
+    {
+        screen.SetActive(value);
+    }
 
     private void Update()
     {
@@ -46,6 +59,7 @@ public class Manager : MonoBehaviour
 
     public void QuitGame()
     {
+        // End the game
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
