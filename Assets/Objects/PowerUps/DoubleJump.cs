@@ -8,10 +8,10 @@ namespace Assets.Objects.PowerUps
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Object entered trigger");
-
             if (other.CompareTag("Player"))
             {
+                Debug.Log("Player touches double jump");
+
                 // Get script
                 PlayerMovement playerMove = other.GetComponent<PlayerMovement>();
 

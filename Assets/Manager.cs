@@ -40,6 +40,8 @@ public class Manager : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.Log("Game over");
+
         _gameOver = true;
 
         // TODO disable movement
@@ -50,6 +52,8 @@ public class Manager : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.Log("Game started");
+
         ToggleScreen(_deathScreen, false);
         ToggleScreen(_playScreen, true);
         ToggleScreen(_startScreen, false);
@@ -60,6 +64,8 @@ public class Manager : MonoBehaviour
 
     public void Restart()
     {
+        Debug.Log("Game restarted");
+
         // Reload the scene
         SceneManager.LoadScene("Main Scene");
 
@@ -75,8 +81,10 @@ public class Manager : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.Log("Game quit");
+
         // End the game
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
         

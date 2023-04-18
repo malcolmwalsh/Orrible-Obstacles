@@ -8,13 +8,14 @@ namespace Assets.Objects.Fans
 
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Object entered trigger");
+            Debug.Log("Object entered fan trigger zone");
         }
+
         void OnTriggerStay(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("Player is in trigger");
+                Debug.Log("Player is in fan trigger zone");
 
                 Vector3 position = transform.position;
                 Vector3 targetPosition = other.transform.position;
@@ -26,13 +27,12 @@ namespace Assets.Objects.Fans
 
                 // Apply force
                 forceReceiver.AddForce(direction, _fanPower);
-
             }
 
         }
         void OnTriggerExit(Collider other)
         {
-            Debug.Log("Object left the trigger");
+            Debug.Log("Object left the fan trigger zone");
         }
     }
 }

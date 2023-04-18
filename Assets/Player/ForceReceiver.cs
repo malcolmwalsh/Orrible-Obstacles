@@ -10,6 +10,8 @@ public class ForceReceiver : MonoBehaviour
     // call this function to add an impact force:
     public void AddForce(Vector3 direction, float incomingForce)
     {
+        Debug.Log("Force applied to a force receiver");
+
         // Make unit vector
         direction.Normalize();
 

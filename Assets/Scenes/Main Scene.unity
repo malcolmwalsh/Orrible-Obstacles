@@ -1476,7 +1476,6 @@ GameObject:
   - component: {fileID: 353526664}
   - component: {fileID: 353526663}
   - component: {fileID: 353526662}
-  - component: {fileID: 353526666}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1568,19 +1567,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &353526666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353526661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d71ccc119249fd4aac629b2d85ab1f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!4 &380665984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7601406349258951206, guid: bdbd483627dac9d448f5af4213f10a21, type: 3}
@@ -1981,7 +1967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -758, y: 218}
+  m_AnchoredPosition: {x: -758, y: 170}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &478038428
@@ -14442,14 +14428,11 @@ MonoBehaviour:
   _speedV: 2
   _yaw: 0
   _pitch: 0
-  controller: {fileID: 1255553836}
-  gravity: -20
+  _controller: {fileID: 0}
+  _gravity: -20
   groundDistance: 0.4
   jumpHeight: 2
   _frameLeewayForGrounded: 5
-  isGrounded: 0
-  canDoubleJump: 0
-  hasDoubleJumped: 0
 --- !u!143 &1255553836
 CharacterController:
   m_ObjectHideFlags: 0
@@ -16406,7 +16389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -758, y: 121}
+  m_AnchoredPosition: {x: -758, y: 73}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769884571

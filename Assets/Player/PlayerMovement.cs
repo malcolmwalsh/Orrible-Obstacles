@@ -1,5 +1,3 @@
-using Assets.Objects.PowerUps;
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -13,11 +11,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _pitch = 0.0f;
 
     // This must be linked to the object that has the "Character Controller" in the inspector. You may need to add this component to the object
-    [SerializeField] private CharacterController controller;
-    private Vector3 velocity;
+    [SerializeField] private CharacterController _controller;
 
     // Customisable gravity
-    [SerializeField] private float gravity = -20f;
+    [SerializeField] private float _gravity = -20f;
 
     // Tells the script how far to keep the object off the ground
     [SerializeField] private float groundDistance = 0.4f;
@@ -28,25 +25,25 @@ public class PlayerMovement : MonoBehaviour
     // Leeway for jumping off things
     [SerializeField] private int _frameLeewayForGrounded = 20;
 
-    // So the script knows if you can jump!
-    // TODO Remove serialization
-    [SerializeField] private bool isGrounded;
+    // So the script knows if you can jump
+    private bool isGrounded;
 
     // Allow double jump and track it
-    // TODO Remove serialization
-    [SerializeField] private bool canDoubleJump;
-    [SerializeField] private bool hasDoubleJumped;
+    private bool canDoubleJump;
+    private bool hasDoubleJumped;
 
+    // Player velocity
+    private Vector3 velocity;
 
     private int _numFramesSinceGrounded = 0;
 
     private void Start()
     {
         // If the variable "controller" is empty...
-        if (controller == null)
+        if (_controller == null)
         {
             // ...then this searches the components on the game object and gets a reference to the CharacterController class
-            controller = GetComponent<CharacterController>();
+            _controller = GetComponent<CharacterController>();
         }
     }
 
@@ -61,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         // Detect when the player is grounded or was until 5 frames ago (to give some leeway)
-        if (controller.isGrounded)
+        if (_controller.isGrounded)
         {
             // Is on the ground
             isGrounded = true;
@@ -90,14 +87,14 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded)
             {
                 // On the ground, can jump
-                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * _gravity);
 
                 hasDoubleJumped = false;
             }
             else if (!isGrounded && canDoubleJump && !hasDoubleJumped)
             {
                 // In the air, and allowed to double jump
-                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * _gravity);
                 hasDoubleJumped = true;
             }
         }
@@ -112,13 +109,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // This fakes gravity!
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += _gravity * Time.deltaTime;
 
         // This takes the Left/Right and Forward/Back values to build a vector
         Vector3 move = transform.right * x + transform.forward * z;
 
         // Finally, it applies that vector it just made to the character
-        controller.Move(_speed * Time.deltaTime * move + velocity * Time.deltaTime);
+        _controller.Move(_speed * Time.deltaTime * move + velocity * Time.deltaTime);
     }
 
     public void EnableDoubleJump()
@@ -129,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void IncreaseSpeed()
     {
+        Debug.Log("Speed up enabled");
         _speed *= 1.5f;
     }
 }
