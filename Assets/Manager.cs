@@ -10,7 +10,6 @@ public class Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private GameObject _deathScreen;
     [SerializeField] private GameObject _playScreen;
-    [SerializeField] private GameObject _startScreen;
     [SerializeField] private GameObject _winScreen;
 
     [SerializeField] private GameObject _playerCamera;
@@ -19,10 +18,8 @@ public class Manager : MonoBehaviour
     public void Start()
     {
         ToggleScreen(_deathScreen, false);
-        ToggleScreen(_playScreen, false);
-        ToggleScreen(_playScreen, false);
-
-        ToggleScreen(_startScreen, true);
+        ToggleScreen(_playScreen, true);
+        ToggleScreen(_winScreen, false);
     }
 
     private void ToggleScreen(GameObject screen, bool value)
@@ -54,26 +51,11 @@ public class Manager : MonoBehaviour
         _deathScreen.SetActive(true);
     }
 
-    public void StartGame()
-    {
-        Debug.Log("Game started");
-
-        ToggleScreen(_winScreen, false);
-        ToggleScreen(_deathScreen, false);        
-        ToggleScreen(_startScreen, false);
-
-        ToggleScreen(_playScreen, true);
-
-        _playerCamera.SetActive(true);
-        _startCamera.SetActive(false);
-    }
+    
 
     public void Restart()
     {
         Debug.Log("Game restarted");
-
-        // Reload the scene
-        SceneManager.LoadScene("Main Scene");
 
         // New game
         _gameOver = false;
@@ -81,8 +63,8 @@ public class Manager : MonoBehaviour
         // Reset timer
         ResetTimer();
 
-        // Start game
-        StartGame();
+        // Reload the scene
+        SceneManager.LoadScene("Main Scene");
     }
 
     public void QuitGame()
@@ -90,7 +72,7 @@ public class Manager : MonoBehaviour
         Debug.Log("Game quit");
 
         // End the game
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
         
