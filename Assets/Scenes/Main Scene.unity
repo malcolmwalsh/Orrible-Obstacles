@@ -2272,7 +2272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 1534587823}
-  _playerColor: {fileID: 0}
+  _playerColor: {fileID: 2100000, guid: f45137dad6009fa4eb1ddb1290fa7e03, type: 2}
   _tutorialScreen: {fileID: 0}
 --- !u!135 &642909945
 SphereCollider:
@@ -7180,7 +7180,7 @@ GameObject:
   - component: {fileID: 662073816}
   - component: {fileID: 662073815}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Goggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7234,7 +7234,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e174b8aa77ff6f34dba287397fc6ad72, type: 2}
+  - {fileID: 2100000, guid: 92318a8c64583834ba76c8523bfd3294, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19343,7 +19343,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2732b1fbfd4d0ff478264704923532ca, type: 2}
+  - {fileID: 2100000, guid: 92318a8c64583834ba76c8523bfd3294, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22757,7 +22757,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 120.00
+  m_text: 0.00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23018,7 +23018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 1154520626}
-  _playerColor: {fileID: 0}
+  _playerColor: {fileID: 2100000, guid: dfc8d0d6f53056f4b8e76d2408512159, type: 2}
   _tutorialScreen: {fileID: 0}
 --- !u!1 &4856709897555656699
 GameObject:
@@ -23126,10 +23126,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7462202110721847443, guid: f6da93b29d463c942b5b5e996bc86f07, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c7830e0795963f346abcea7dc9f74f4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6da93b29d463c942b5b5e996bc86f07, type: 3}
 --- !u!1001 &7601406348034027943

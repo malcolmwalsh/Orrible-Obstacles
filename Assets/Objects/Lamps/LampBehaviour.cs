@@ -15,8 +15,8 @@ public class LampBehaviour : MonoBehaviour
         // Get component
         _light = GetComponent<Light>();
 
-        // Start with 1 second
-        _remainingTime = 1f;
+        // Start time
+        _remainingTime = SampleRemainingTime();
     }
 
     // Update is called once per frame
@@ -35,8 +35,13 @@ public class LampBehaviour : MonoBehaviour
             ToggleLight();
 
             // Sample new time
-            _remainingTime = Random.Range(_minTimeBeforeChange, _maxTimeBeforeChange);
+            _remainingTime = SampleRemainingTime();
         }
+    }
+
+    private float SampleRemainingTime()
+    {
+        return Random.Range(_minTimeBeforeChange, _maxTimeBeforeChange);
     }
 
     private void ToggleLight()

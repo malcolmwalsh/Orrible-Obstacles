@@ -7,6 +7,5 @@ namespace Assets.Objects.PowerUps
             // Enable double jump
             _playerMove.EnableDoubleJump();
         }
-        
     }
 }

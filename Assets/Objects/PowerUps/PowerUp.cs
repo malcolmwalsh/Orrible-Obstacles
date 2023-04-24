@@ -6,7 +6,7 @@ namespace Assets.Objects.PowerUps
     public abstract class PowerUp : MonoBehaviour
     {
         [SerializeField] protected GameObject _icon;
-        [SerializeField] protected GameObject _playerColor;
+        [SerializeField] protected Material _playerColor;
         [SerializeField] protected GameObject _tutorialScreen;
         
         protected PlayerMovement _playerMove;
@@ -26,7 +26,8 @@ namespace Assets.Objects.PowerUps
                 // Enable the power up
                 EnablePowerUp();
 
-                // TODO Change color of player
+                // Change color of player
+                _playerMove.SetColor(_playerColor);
 
                 // TODO Pop-up tutorial
 
