@@ -1,34 +1,11 @@
-using Assets.Player;
-using UnityEngine;
-
 namespace Assets.Objects.PowerUps
 {
-    public class SpeedUp : MonoBehaviour
+    public class SpeedUp : PowerUp
     {
-        [SerializeField] private GameObject icon;
-
-        void OnTriggerEnter(Collider other)
+        protected override void EnablePowerUp()
         {
-            if (other.CompareTag("Player"))
-            {
-                Debug.Log("Player touches speed up");
-
-                // Get script
-                PlayerMovement playerMove = other.GetComponent<PlayerMovement>();
-
-                // Increase speed
-                playerMove.IncreaseSpeed();
-
-                // Turn icon on
-                icon.SetActive(true);
-
-                // TODO Change color of player
-
-                // TODO Pop-up tutorial
-
-                // Destroy power up
-                Destroy(this.gameObject);
-            }
+            // Speed up
+            _playerMove.IncreaseSpeed();
         }
     }
 }
