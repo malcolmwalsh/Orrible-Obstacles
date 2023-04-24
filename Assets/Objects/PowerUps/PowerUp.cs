@@ -5,7 +5,6 @@ namespace Assets.Objects.PowerUps
 {
     public abstract class PowerUp : MonoBehaviour
     {
-        [SerializeField] private Manager manager;
         [SerializeField] protected GameObject _icon;
         [SerializeField] protected Material _playerColor;
         [SerializeField] protected GameObject _tutorialScreen;
@@ -31,10 +30,13 @@ namespace Assets.Objects.PowerUps
                 _playerMove.SetColor(_playerColor);
 
                 // Pop-up tutorial
-                OpenTutorial();
+                if (GameState.Current.ShowTutorial(this))
+                {
+                    OpenTutorial();
+                }
 
-                // Destroy power up
-                Destroy(this.gameObject);
+                // Disable power up
+                this.gameObject.SetActive(false);
             }
         }
 
@@ -42,7 +44,11 @@ namespace Assets.Objects.PowerUps
 
         private void OpenTutorial()
         {
-            // TODO Pause game
+            // Pause game
+            Manager.PauseGame();
+
+            // Register seen this tutorial
+            GameState.Current.RegisterTutorialSeen(this);
 
             // Open screen
             _tutorialScreen.SetActive(true);
@@ -53,8 +59,13 @@ namespace Assets.Objects.PowerUps
             // Close screen
             _tutorialScreen.SetActive(false);
 
-            // TODO Unpause game
+            // Unpause game
+            Manager.ResumeGame();
+        }
 
+        public override string ToString()
+        {
+            return gameObject.name;
         }
     }
 }

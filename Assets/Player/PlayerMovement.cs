@@ -18,9 +18,6 @@ namespace Assets.Player
         // Customisable gravity
         [SerializeField] private float _gravity = -20f;
 
-        // Tells the script how far to keep the object off the ground
-        //[SerializeField] private float groundDistance = 0.4f;
-
         // How high the player can jump
         [SerializeField] private float jumpHeight = 2f;
 
@@ -31,13 +28,13 @@ namespace Assets.Player
         private bool isGrounded;
 
         // Allow double jump and track it
-        // TODO Remove this serialization
-        [SerializeField] private bool canDoubleJump;
+        private bool canDoubleJump;
         private bool hasDoubleJumped;
 
         // Player velocity
         private Vector3 velocity;
 
+        // Counts the number of frames since the player was on the ground
         private int _numFramesSinceGrounded = 0;
 
         private void Start()

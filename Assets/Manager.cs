@@ -7,7 +7,6 @@ namespace Assets
 {
     public class Manager : MonoBehaviour
     {
-        private bool _gameOver;
         private float _timeTaken = 0f;
 
         [SerializeField] private TextMeshProUGUI timerText;
@@ -33,39 +32,43 @@ namespace Assets
 
         private void Update()
         {
-            if (!_gameOver)
-            {
-                // Increment time
-                _timeTaken += Time.deltaTime;
+            // Increment time
+            _timeTaken += Time.deltaTime;
 
-                // Update text
-                UpdateTimerDisplay(_timeTaken);
-            }
+            // Update text
+            UpdateTimerDisplay(_timeTaken);
+        }
+
+        public static void PauseGame()
+        {
+            Time.timeScale = 0;
+        }
+
+        public static void ResumeGame()
+        {
+            Time.timeScale = 1;
         }
 
         public void GameOver()
         {
             Debug.Log("Game over");
 
-            _gameOver = true;
-
-            // TODO disable movement
+            // Pause the game
+            PauseGame();
 
             // Stop music
-            StartCoroutine(AudioUtils.FadeOut(_audio, 2));
+            StartCoroutine(AudioUtils.FadeOut(_audio, 1));
 
             // Show the death screen
             _deathScreen.SetActive(true);
         }
 
-    
-
         public void Restart()
         {
             Debug.Log("Game restarted");
 
-            // New game
-            _gameOver = false;
+            // Resume game
+            ResumeGame();
 
             // Reset timer
             ResetTimer();
@@ -93,7 +96,7 @@ namespace Assets
 
         private void UpdateTimerDisplay(float time)
         {
-            // TODO Improve display
+            // Improve display
             timerText.text = time.ToString("0.00");
         }
 
@@ -101,8 +104,13 @@ namespace Assets
         {
             Debug.Log("Game won");
 
-            _gameOver = true;
+            // Pause
+            PauseGame();
 
+            // Stop music
+            StartCoroutine(AudioUtils.FadeOut(_audio, 1));
+
+            // Show victory screen
             ToggleScreen(_winScreen, true);       
         }
     }

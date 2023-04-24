@@ -13,7 +13,7 @@ namespace Assets.OrribleUtils
 
             while (audioSource.volume > 0)
             {
-                audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+                audioSource.volume -= startVolume * Time.unscaledDeltaTime / fadeTime;
 
                 yield return null;
             }
