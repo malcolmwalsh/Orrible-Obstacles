@@ -1,24 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartManager : MonoBehaviour
+namespace Assets
 {
-    public void StartGame()
+    public class StartManager : MonoBehaviour
     {
-        Debug.Log("Game started");
+        public void StartGame()
+        {
+            Debug.Log("Game started");
 
-        SceneManager.LoadScene("Main Scene");
-    }
+            SceneManager.LoadScene("Main Scene");
+        }
 
-    public void QuitGame()
-    {
-        Debug.Log("Game quit");
+        public void QuitGame()
+        {
+            Debug.Log("Game quit");
 
-        // End the game
-        #if UNITY_EDITOR
+            // End the game
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
 
-        Application.Quit();
+            Application.Quit();
+        }
     }
 }

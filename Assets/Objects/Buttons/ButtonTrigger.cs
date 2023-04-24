@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public class ButtonTrigger : MonoBehaviour
+namespace Assets.Objects.Buttons
 {
-    [SerializeField] private ButtonController _button;
-
-    public void OnTriggerEnter(Collider other)
+    public class ButtonTrigger : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        [SerializeField] private ButtonController _button;
+
+        public void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Player enters button zone");
-            _button.EnableButton();
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("Player enters button zone");
+                _button.EnableButton();
+            }
         }
-    }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        public void OnTriggerExit(Collider other)
         {
-            Debug.Log("Player exits button zone");
-            _button.DisableButton();
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("Player exits button zone");
+                _button.DisableButton();
+            }
         }
     }
 }

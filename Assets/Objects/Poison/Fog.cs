@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class Fog : MonoBehaviour
+namespace Assets.Objects.Poison
 {
-    [SerializeField] private Manager _gameManager;
-
-    public void OnTriggerStay(Collider other)
+    public class Fog : MonoBehaviour
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player detected in poison");
+        [SerializeField] private Manager _gameManager;
 
-            // call game over
-            _gameManager.GameOver();
+        public void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player detected in poison");
+
+                // call game over
+                _gameManager.GameOver();
+            }
         }
     }
 }

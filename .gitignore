@@ -71,3 +71,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 .vsconfig
+*.aup3
+*.aup3-shm
+*.meta
+*.aup3-wal
+Assets/Audio/03 Strange Things.mp3

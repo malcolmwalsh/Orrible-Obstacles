@@ -1,40 +1,43 @@
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+namespace Assets.Objects.Buttons
 {
-    [SerializeField] private GameObject _light;
-    [SerializeField] private Manager _manager;
+    public class ButtonController : MonoBehaviour
+    {
+        [SerializeField] private GameObject _light;
+        [SerializeField] private Manager _manager;
 
-    private bool _buttonEnabled = false;
+        private bool _buttonEnabled = false;
     
 
-    public void Update()
-    {
-        if (_buttonEnabled)
+        public void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (_buttonEnabled)
             {
-                TurnLightOff();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    TurnLightOff();
+                }
             }
         }
-    }
 
-    public void EnableButton()
-    {
-        _buttonEnabled = true;
-    }
+        public void EnableButton()
+        {
+            _buttonEnabled = true;
+        }
 
-    public void DisableButton()
-    {
-        _buttonEnabled = false;
-    }
+        public void DisableButton()
+        {
+            _buttonEnabled = false;
+        }
 
-    private void TurnLightOff()
-    {
-        // Turn light off
-        _light.SetActive(false);
+        private void TurnLightOff()
+        {
+            // Turn light off
+            _light.SetActive(false);
 
-        // Win the game
-        _manager.WinGame();
+            // Win the game
+            _manager.WinGame();
+        }
     }
 }

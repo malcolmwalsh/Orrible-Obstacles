@@ -1,3 +1,4 @@
+using Assets.Player;
 using UnityEngine;
 
 namespace Assets.Objects.Fans
