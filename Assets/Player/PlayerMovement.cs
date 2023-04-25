@@ -129,17 +129,5 @@ namespace Assets.Player
             Debug.Log("Speed up enabled");
             _speed *= 2.0f;
         }
-
-        public void SetColor(Material color)
-        {
-            // Capsule
-            MeshRenderer mr = this.gameObject.GetComponent<MeshRenderer>();
-            mr.material = color;
-
-            // Goggles
-            GameObject goggles = this.gameObject.transform.Find("Goggles").gameObject;
-            mr = goggles.GetComponent<MeshRenderer>();
-            mr.material = color;
-        }
     }
 }

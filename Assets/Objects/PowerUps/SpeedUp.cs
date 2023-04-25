@@ -5,7 +5,7 @@ namespace Assets.Objects.PowerUps
         protected override void EnablePowerUp()
         {
             // Speed up
-            _playerMove.IncreaseSpeed();
+            _playerMovement.IncreaseSpeed();
         }
     }
 }

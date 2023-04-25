@@ -8,8 +8,9 @@ namespace Assets.Objects.PowerUps
         [SerializeField] protected GameObject _icon;
         [SerializeField] protected Material _playerColor;
         [SerializeField] protected GameObject _tutorialScreen;
-        
-        protected PlayerMovement _playerMove;
+
+        protected PlayerMovement _playerMovement;
+        private PlayerAesthetics _playerAesthetics;
 
         void OnTriggerEnter(Collider other)
         {
@@ -17,8 +18,9 @@ namespace Assets.Objects.PowerUps
             {
                 Debug.Log("Player touches power up");
 
-                // Get script
-                _playerMove = other.GetComponent<PlayerMovement>();
+                // Get scripts
+                _playerMovement = other.GetComponent<PlayerMovement>();
+                _playerAesthetics = other.GetComponent<PlayerAesthetics>();
 
                 // Turn icon on
                 _icon.SetActive(true);
@@ -27,7 +29,7 @@ namespace Assets.Objects.PowerUps
                 EnablePowerUp();
 
                 // Change color of player
-                _playerMove.SetColor(_playerColor);
+                _playerAesthetics.SetColor(_playerColor);
 
                 // Pop-up tutorial
                 if (GameState.Current.ShowTutorial(this))

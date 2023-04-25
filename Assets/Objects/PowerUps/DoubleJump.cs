@@ -5,7 +5,7 @@ namespace Assets.Objects.PowerUps
         protected override void EnablePowerUp()
         {
             // Enable double jump
-            _playerMove.EnableDoubleJump();
+            _playerMovement.EnableDoubleJump();
         }
     }
 }
