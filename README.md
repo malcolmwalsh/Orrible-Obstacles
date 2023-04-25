@@ -2,7 +2,7 @@
 GAD170 Project 3
 
 ## Getting Started
-Open Unity project and press play, or, use the executable [here](https://github.com/malcolmwalsh/Orrible-Obstacles/releases/tag/v1.0)
+Open Unity project and press play, or, use the executable [here](https://github.com/malcolmwalsh/Orrible-Obstacles/releases/tag/v1.1)
 
 ## Introduction to the game
 You are very hungover and the bright light is painful. Make your way to the top of the pyramid as fast as you can and turn off the bloody thing.  
